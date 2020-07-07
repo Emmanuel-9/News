@@ -5,7 +5,7 @@ class Config:
   NEWS_API_KEY = os.environ.get('API_KEY')
 
 
-class ProdCongif(Config):
+class ProdConfig(Config):
   pass
 
 
@@ -14,5 +14,5 @@ class DevConfig(Config):
 
 config_options = {
   'development':DevConfig,
-  'production':ProdCongif
+  'production':ProdConfig
 }
