@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+<!-- Steyling block-->
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+  
+ 
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row head-section">
+      <div class="card card-body text-center page-title">
+        <strong><h2 class="animated slideInRight slower">YOUR NEWS SOURCE..</h2></strong>
+        </div>
+  </div>
+  <div class="row">
+        
+        {% for source in sources %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 news-card card shadow p-3 mb-5 bg-white rounded" style="margin-left:4%; margin-right:4%">
+          <div class="card-body" >
+            <h4 class="card-title"><b>{{source.name}}</b></h4>
+            <p class="card-text text-left">{{source.description}}</p>
+            <div class="card-footer">
+              <li><a href="{{source.url}}" target="_blank">Go to site</a></li>
+              <li class="cate"><b>Category: {{source.category}}</b></li>
+            </div>
+            <div style="margin:1%">
+              <a href="/source/{{source.id}}" target="_blank"><button class="btn btn-dark">View Aritcles</button></a>
+            </div>            
+          </div>        
+        </div>
+        {% endfor %}        
+        
+  </div>
+      
+</div>
+
+{% endblock %}
