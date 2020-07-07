@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+<!-- Styling block-->
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Quicksand" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h2 style="text-align:center; font-weight:bold">TOP-HEADLINE: NEWS ARTICLES</h2>
+  <div class="row card">
+    {% for article in articles_list %}
+      <div class="card-body imageUrl" style="background: url({{article.image}}) no-repeat center center; height: 30rem; width: auto; margin:2%">  
+      </div>
+      <div class="card-footer" style="margin:2%; background-color: #00008b; color: white">
+        <h3>{{article.title}}</h3>
+
+        <p class="desc">{{article.description}}</p><br>
+        <p class="date"><b><i>Date Published: {{article.date|truncate(13)}}</i></b></p><br>
+        <p class="content">{{article.content}}</p><br>
+        <a href="{{article.url}}" target="_blank"><p class="more">Read More</p></a> 
+      </div>             
+     
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
