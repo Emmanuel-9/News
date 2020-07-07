@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
-<!-- Steyling block-->
 {% block styles %}
   {{super()}}
-  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
   
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Quicksand" rel="stylesheet">
  
 {% endblock %}
 
@@ -13,9 +12,9 @@
 <div class="container-fluid">
   <div class="row head-section">
       <div class="card card-body text-center page-title">
-        <strong><h2 class="animated slideInRight slower">YOUR NEWS SOURCE..</h2></strong>
+        <strong><h2 class="animated slideInLeft slower">YOUR NEWS SOURCE..</h2></strong>
         </div>
-  </div>
+  </div><br>
   <div class="row">
         
         {% for source in sources %}
@@ -28,7 +27,7 @@
               <li class="cate"><b>Category: {{source.category}}</b></li>
             </div>
             <div style="margin:1%">
-              <a href="/source/{{source.id}}" target="_blank"><button class="btn btn-dark">View Aritcles</button></a>
+              <a href="/source/{{source.id}}" target="_blank"><button class="btn btn-success">View Aritcles</button></a>
             </div>            
           </div>        
         </div>
